@@ -107,7 +107,6 @@ MonoBehaviour:
   DashTime: 1
   DashCooldown: 2
   DashForce: 1000
-  _target: {fileID: 0}
 --- !u!61 &5363561138996238050
 BoxCollider2D:
   m_ObjectHideFlags: 0

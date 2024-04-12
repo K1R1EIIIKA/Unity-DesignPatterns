@@ -1,4 +1,5 @@
 using System;
+using Player;
 using Soap.Strategies;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,7 +22,7 @@ namespace Soap
         public float DashCooldown = 5f;
         public float DashForce = 5f;
         
-        [SerializeField] private Transform _target;
+        private Transform _target;
         [NonSerialized] public Rigidbody2D Rb;
         [NonSerialized] public Collider2D Collider;
         
@@ -35,6 +36,7 @@ namespace Soap
             ChangeStrategy(new SoapWandering());
             Rb = GetComponent<Rigidbody2D>();
             Collider = GetComponent<Collider2D>();
+            _target = PlayerLogic.Instance.transform;
             
             _soapDashing = new SoapDashing();
             _soapWandering = new SoapWandering();
@@ -64,6 +66,14 @@ namespace Soap
         {
             _soapStrategy = newStrategy;
             Debug.Log($"Strategy changed to {_soapStrategy.GetType().Name}");
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Wall"))
+            {
+                Rb.velocity = (transform.position - other.transform.position).normalized * BaseSpeed / 2;
+            }
         }
     }
 }
