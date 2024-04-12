@@ -6,8 +6,6 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float _speed = 5f;
-    
         private Animator _animator;
         private Vector3 _movement;
         private Rigidbody2D _rb;
@@ -29,7 +27,7 @@ namespace Player
 
             _animator.SetFloat("Speed", _movement.magnitude);
         
-            _rb.velocity = new Vector2(_movement.x * _speed, _movement.y * _speed);
+            _rb.velocity = new Vector2(_movement.x * PlayerLogic.Instance.Stats.Speed, _movement.y * PlayerLogic.Instance.Stats.Speed);
             transform.rotation = Quaternion.Euler(0, _movement.x >= 0 ? 0 : 180, 0);
         }
 
@@ -40,11 +38,6 @@ namespace Player
 
             _movement = new Vector3(horizontal, vertical, 0);
             _movement = _movement.normalized;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            Debug.Log(other.name);
         }
     }
 }

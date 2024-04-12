@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5148162549060348033}
   m_Layer: 0
   m_Name: Soap
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e8a13b22774425aefcbdeb6888043d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WanderRadius: 10
+  WanderRadius: 8
   WanderTimer: 1.5
   BaseSpeed: 2
-  CurrentSpeed: 2
-  DashRange: 6
+  DashRange: 5
   DashPreparationTime: 1.5
-  DashCooldown: 3
+  DashTime: 1
+  DashCooldown: 2
   DashForce: 1000
   _target: {fileID: 0}
 --- !u!61 &5363561138996238050
