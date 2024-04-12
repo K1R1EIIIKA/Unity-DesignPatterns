@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player
@@ -8,10 +10,12 @@ namespace Player
     
         private Animator _animator;
         private Vector3 _movement;
+        private Rigidbody2D _rb;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -25,7 +29,7 @@ namespace Player
 
             _animator.SetFloat("Speed", _movement.magnitude);
         
-            transform.position += _movement * (Time.deltaTime * _speed);
+            _rb.velocity = new Vector2(_movement.x * _speed, _movement.y * _speed);
             transform.rotation = Quaternion.Euler(0, _movement.x >= 0 ? 0 : 180, 0);
         }
 
@@ -36,6 +40,11 @@ namespace Player
 
             _movement = new Vector3(horizontal, vertical, 0);
             _movement = _movement.normalized;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            Debug.Log(other.name);
         }
     }
 }

@@ -6,11 +6,7 @@ namespace Soap.Strategies
     {
         public void Move(SoapMovement soap, Transform target)
         {
-            soap.transform.position =
-                Vector3.MoveTowards(
-                    soap.transform.position,
-                    target.position,
-                    soap.Speed * Time.deltaTime);
+            soap.Rb.velocity = (target.position - soap.transform.position).normalized * soap.BaseSpeed;
         }
     }
 }
