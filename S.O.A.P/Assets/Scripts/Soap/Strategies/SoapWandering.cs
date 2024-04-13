@@ -12,7 +12,7 @@ namespace Soap.Strategies
             if (_isWandering) return;
 
             Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
-            Vector3 wanderPosition = soap.transform.position + randomDirection * soap.WanderRadius;
+            Vector3 wanderPosition = soap.transform.position + randomDirection * soap.SoapConfig.WanderRadius;
 
             soap.StartCoroutine(Wander(soap, wanderPosition));
         }
@@ -20,9 +20,9 @@ namespace Soap.Strategies
         private IEnumerator Wander(SoapMovement soap, Vector3 wanderPosition)
         {
             _isWandering = true;
-            soap.Rb.velocity = (wanderPosition - soap.transform.position).normalized * soap.BaseSpeed;
+            soap.Rb.velocity = (wanderPosition - soap.transform.position).normalized * soap.SoapConfig.BaseSpeed;
 
-            yield return new WaitForSeconds(soap.WanderTimer);
+            yield return new WaitForSeconds(soap.SoapConfig.WanderTimer);
 
             _isWandering = false;
         }

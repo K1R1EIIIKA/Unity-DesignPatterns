@@ -6,7 +6,7 @@ namespace Soap.Strategies
     {
         public void Move(SoapMovement soap, Transform target)
         {
-            soap.Rb.velocity = (target.position - soap.transform.position).normalized * soap.BaseSpeed;
+            soap.Rb.velocity = (target.position - soap.transform.position).normalized * soap.SoapConfig.BaseSpeed;
         }
     }
 }

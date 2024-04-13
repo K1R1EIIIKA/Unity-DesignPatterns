@@ -19,7 +19,7 @@ namespace Soap.Strategies
             _isCooldown = true;
             _isDashing = false;
 
-            yield return new WaitForSeconds(soap.DashPreparationTime);
+            yield return new WaitForSeconds(soap.SoapConfig.DashPreparationTime);
             if (_isDashing) yield break;
 
             soap.StartCoroutine(Dash(soap, target));
@@ -32,13 +32,13 @@ namespace Soap.Strategies
             _isDashing = true;
             soap.Collider.isTrigger = true;
 
-            soap.Rb.AddForce((target.position - soap.transform.position).normalized * soap.DashForce,
+            soap.Rb.AddForce((target.position - soap.transform.position).normalized * soap.SoapConfig.DashForce,
                 ForceMode2D.Impulse);
             
-            yield return new WaitForSeconds(soap.DashTime);
+            yield return new WaitForSeconds(soap.SoapConfig.DashTime);
             soap.Collider.isTrigger = false;
 
-            yield return new WaitForSeconds(soap.DashCooldown);
+            yield return new WaitForSeconds(soap.SoapConfig.DashCooldown);
             _isCooldown = false;
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using Player;
+using ScriptableObjects;
 using Soap.Strategies;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,24 +9,12 @@ namespace Soap
 {
     public class SoapMovement : MonoBehaviour
     {
-        [Header("Wandering")]
-        public float WanderRadius = 5f;
-        public float WanderTimer = 1.5f;
+        public SoapSO SoapConfig;
         
-        [Header("Chasing")]
-        public float BaseSpeed = 2f;
-        
-        [Header("Dashing")]
-        public float DashRange = 3f;
-        public float DashPreparationTime = 1.5f;
-        public float DashTime = 1f;
-        public float DashCooldown = 5f;
-        public float DashForce = 5f;
-        
-        private Transform _target;
         [NonSerialized] public Rigidbody2D Rb;
         [NonSerialized] public Collider2D Collider;
         
+        private Transform _target;
         private ISoapStrategy _soapStrategy;
         private SoapDashing _soapDashing;
         private SoapWandering _soapWandering;
@@ -54,9 +43,9 @@ namespace Soap
         {
             float distance = Vector2.Distance(transform.position, _target.position);
             
-            if (distance < DashRange)
+            if (distance < SoapConfig.DashRange)
                 ChangeStrategy(_soapDashing);
-            else if (distance < WanderRadius)
+            else if (distance < SoapConfig.WanderRadius)
                 ChangeStrategy(_soapChasing);
             else
                 ChangeStrategy(_soapWandering);
@@ -72,7 +61,7 @@ namespace Soap
         {
             if (other.CompareTag("Wall"))
             {
-                Rb.velocity = (transform.position - other.transform.position).normalized * BaseSpeed / 2;
+                Rb.velocity = (transform.position - other.transform.position).normalized * SoapConfig.BaseSpeed / 2;
             }
         }
     }

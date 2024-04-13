@@ -640,6 +640,7 @@ Transform:
   - {fileID: 1487835435}
   - {fileID: 1249143466}
   - {fileID: 1983608047}
+  - {fileID: 2029562749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &924945838
@@ -744,6 +745,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1060022264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060022265}
+  m_Layer: 0
+  m_Name: BulletSoap Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060022265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060022264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3486176, y: -0.32364726, z: -0.059998456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1249143463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1338,54 @@ MonoBehaviour:
   _spawnPoint: {fileID: 1362665671}
   _spawnRate: 8
   _spawnRange: {x: 7, y: 4}
+--- !u!1 &2029562748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2029562749}
+  - component: {fileID: 2029562750}
+  m_Layer: 0
+  m_Name: BulletSoap Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2029562749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029562748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 791437061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029562750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029562748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b91f6969624382b3d3d0d80fa18061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soapPrefab: {fileID: 1608872179086939436, guid: 8480955010e108841bfaa20e2a2dd3aa, type: 3}
+  _soapSpawner: {fileID: 1060022265}
+  _spawnRate: 0.3
+  _soapConfig: {fileID: 11400000, guid: c930dd00bcbbb19439fa2411538fde4a, type: 2}
 --- !u!1 &2129080917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,3 +1762,4 @@ SceneRoots:
   - {fileID: 535793221}
   - {fileID: 924945842}
   - {fileID: 1362665671}
+  - {fileID: 1060022265}

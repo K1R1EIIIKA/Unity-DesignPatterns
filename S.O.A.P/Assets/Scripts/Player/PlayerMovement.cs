@@ -9,6 +9,8 @@ namespace Player
         private Animator _animator;
         private Vector3 _movement;
         private Rigidbody2D _rb;
+        
+        private readonly int Speed = Animator.StringToHash("Speed");
 
         private void Awake()
         {
@@ -25,7 +27,7 @@ namespace Player
         {
             HandleInputAxes();
 
-            _animator.SetFloat("Speed", _movement.magnitude);
+            _animator.SetFloat(Speed, _movement.magnitude);
         
             _rb.velocity = new Vector2(_movement.x * PlayerLogic.Instance.Stats.Speed, _movement.y * PlayerLogic.Instance.Stats.Speed);
             transform.rotation = Quaternion.Euler(0, _movement.x >= 0 ? 0 : 180, 0);

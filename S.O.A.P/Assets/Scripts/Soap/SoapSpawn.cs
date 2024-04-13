@@ -22,7 +22,7 @@ namespace Soap
         private IEnumerator SpawnSoap()
         {
             var randomPosition = GetRandomPosition();
-            Debug.Log(randomPosition);
+            // Debug.Log(randomPosition);
                 
             Instantiate(_soapPrefab, randomPosition, Quaternion.identity, _spawnPoint);
             
