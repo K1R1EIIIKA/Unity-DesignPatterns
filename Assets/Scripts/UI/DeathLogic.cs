@@ -1,5 +1,6 @@
 using System;
 using EventBusLogic;
+using Player;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ namespace UI
 
         private void Lose()
         {
+            PlayerLogic.Instance.IsDead = true;
+            
             _deathScreen.SetActive(true);
             SaveProgress.SaveMaxScore(_scoreLogic.Score);
             

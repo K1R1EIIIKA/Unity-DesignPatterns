@@ -1,3 +1,4 @@
+using System;
 using Soap;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Player
     public class PlayerLogic : MonoBehaviour
     {
         public PlayerStats Stats;
+        [NonSerialized] public bool IsDead;
 
         public static PlayerLogic Instance { get; private set; }
 
