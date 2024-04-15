@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 namespace Soap
 {
-    public class SoapSpawn : MonoBehaviour
+    public class SoapSpawn : MonoBehaviour, ISoapSpawn
     {
         [SerializeField] private GameObject _soapPrefab;
         [SerializeField] private Transform _target;
@@ -14,31 +14,36 @@ namespace Soap
 
         private void Start()
         {
-            StartCoroutine(SpawnSoap());
+            StartCoroutine(StartSpawnSoap());
         }
 
-        private IEnumerator SpawnSoap()
+        public IEnumerator StartSpawnSoap()
+        {
+            SpawnSoap();
+            yield return new WaitForSeconds(_spawnRate);
+        }
+
+        public GameObject SpawnSoap()
         {
             var randomPosition = GetRandomPosition();
-            // Debug.Log(randomPosition);
-                
-            Instantiate(_soapPrefab, randomPosition, Quaternion.identity, _spawnPoint);
-            
-            yield return new WaitForSeconds(_spawnRate);
-            StartCoroutine(SpawnSoap());
+
+            return Instantiate(_soapPrefab, randomPosition, Quaternion.identity, _spawnPoint);
         }
 
         private Vector3 GetRandomPosition()
         {
-            var randomPosition = new Vector3(Random.Range(-_spawnRange.x, _spawnRange.x), Random.Range(-_spawnRange.y, _spawnRange.y), 0);
-            
+            var randomPosition = new Vector3(Random.Range(-_spawnRange.x, _spawnRange.x),
+                Random.Range(-_spawnRange.y, _spawnRange.y), 0);
+
             if (_target != null)
             {
                 while (Vector3.Distance(randomPosition, _target.position) < 3f)
                 {
-                    randomPosition = new Vector3(Random.Range(-_spawnRange.x, _spawnRange.x), Random.Range(-_spawnRange.y, _spawnRange.y), 0);
+                    randomPosition = new Vector3(Random.Range(-_spawnRange.x, _spawnRange.x),
+                        Random.Range(-_spawnRange.y, _spawnRange.y), 0);
                 }
             }
+
             return randomPosition;
         }
     }

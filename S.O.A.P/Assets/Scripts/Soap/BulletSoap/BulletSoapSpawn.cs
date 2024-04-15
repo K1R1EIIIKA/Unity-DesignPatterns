@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Soap.BulletSoap
 {
-    public class BulletSoapSpawn : MonoBehaviour
+    public class BulletSoapSpawn : MonoBehaviour, ISoapSpawn
     {
         [SerializeField] private GameObject _soapPrefab;
         [SerializeField] private Transform _soapSpawner;
@@ -15,10 +15,16 @@ namespace Soap.BulletSoap
 
         private void Start()
         {
-            StartCoroutine(SpawnSoap());
+            StartCoroutine(StartSpawnSoap());
         }
 
-        private IEnumerator SpawnSoap()
+        public IEnumerator StartSpawnSoap()
+        {
+            SpawnSoap();
+            yield return new WaitForSeconds(_spawnRate);
+        }
+
+        public GameObject SpawnSoap()
         {
             int randWall = Random.Range(0, 4);
             Vector3 spawnPosition = Vector3.zero;
@@ -37,12 +43,11 @@ namespace Soap.BulletSoap
                     spawnPosition = new Vector3(_xSpawnRange.y, Random.Range(_ySpawnRange.x, _ySpawnRange.y), 0f);
                     break;
             }
-            
+
             GameObject soap = Instantiate(_soapPrefab, spawnPosition, Quaternion.identity, _soapSpawner);
             soap.GetComponent<BulletSoap>().Init(_soapConfig);
             
-            yield return new WaitForSeconds(_spawnRate);
-            StartCoroutine(SpawnSoap());
+            return soap;
         }
     }
 }
