@@ -2923,7 +2923,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 1362665671}
   _spawnRate: 8
   _spawnRange: {x: 7, y: 4}
-  _startSpawnTime: 5
+  _startSpawnTime: 2
 --- !u!1 &2029562748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,7 +2974,7 @@ MonoBehaviour:
   _xSpawnRange: {x: -10, y: 10}
   _ySpawnRange: {x: -5.5, y: 5.5}
   _soapConfig: {fileID: 11400000, guid: c930dd00bcbbb19439fa2411538fde4a, type: 2}
-  _startSpawnTime: 10
+  _startSpawnTime: 6
 --- !u!1 &2129080917
 GameObject:
   m_ObjectHideFlags: 0

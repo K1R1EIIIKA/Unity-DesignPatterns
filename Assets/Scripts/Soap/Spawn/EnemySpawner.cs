@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Soap
+namespace Soap.Spawn
 {
     public class EnemySpawner : MonoBehaviour
     {

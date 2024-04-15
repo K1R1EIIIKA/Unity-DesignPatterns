@@ -28,7 +28,6 @@ namespace Soap.Strategies
         
         private IEnumerator Dash(SoapMovement soap, Transform target)
         {
-            // Debug.Log("dash");
             _isDashing = true;
             soap.Collider.isTrigger = true;
 
