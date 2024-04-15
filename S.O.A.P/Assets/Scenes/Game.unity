@@ -1281,12 +1281,10 @@ Transform:
   m_Children:
   - {fileID: 1487835435}
   - {fileID: 1249143466}
-  - {fileID: 1983608047}
-  - {fileID: 2029562749}
   - {fileID: 1461586163}
   - {fileID: 324143278}
   - {fileID: 1050333175}
-  - {fileID: 1237350290}
+  - {fileID: 1192214935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &903879948
@@ -1944,6 +1942,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1192214934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192214935}
+  - component: {fileID: 1192214936}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1192214935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192214934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1983608047}
+  - {fileID: 2029562749}
+  m_Father: {fileID: 791437061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192214936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192214934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9fb65d42b447d395c9f2ca287fe112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237350289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,12 +2013,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237350289}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 484.97794, y: 979.4522, z: -3.282501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 791437061}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1237350291
 MonoBehaviour:
@@ -2855,12 +2899,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983608046}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 791437061}
+  m_Father: {fileID: 1192214935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1983608048
 MonoBehaviour:
@@ -2879,6 +2923,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 1362665671}
   _spawnRate: 8
   _spawnRange: {x: 7, y: 4}
+  _startSpawnTime: 5
 --- !u!1 &2029562748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,12 +2949,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029562748}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 791437061}
+  m_Father: {fileID: 1192214935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2029562750
 MonoBehaviour:
@@ -2929,6 +2974,7 @@ MonoBehaviour:
   _xSpawnRange: {x: -10, y: 10}
   _ySpawnRange: {x: -5.5, y: 5.5}
   _soapConfig: {fileID: 11400000, guid: c930dd00bcbbb19439fa2411538fde4a, type: 2}
+  _startSpawnTime: 10
 --- !u!1 &2129080917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3328,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1237350290}
   - {fileID: 791437061}
   - {fileID: 519420032}
   - {fileID: 2934654697542125201}

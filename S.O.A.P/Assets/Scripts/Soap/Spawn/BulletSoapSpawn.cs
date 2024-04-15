@@ -12,11 +12,9 @@ namespace Soap.BulletSoap
         [SerializeField] private Vector2 _xSpawnRange = new(-2.5f, 2.5f);
         [SerializeField] private Vector2 _ySpawnRange = new(-4.5f, 4.5f);
         [SerializeField] private BulletSoapSO _soapConfig;
-
-        private void Start()
-        {
-            StartCoroutine(StartSpawnSoap());
-        }
+        [SerializeField] private float _startSpawnTime;
+        
+        public float StartSpawnTime => _startSpawnTime;
 
         public IEnumerator StartSpawnSoap()
         {

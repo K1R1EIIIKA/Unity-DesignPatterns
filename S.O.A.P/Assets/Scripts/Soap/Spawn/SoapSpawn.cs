@@ -11,11 +11,9 @@ namespace Soap
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _spawnRate;
         [SerializeField] private Vector2 _spawnRange;
-
-        private void Start()
-        {
-            StartCoroutine(StartSpawnSoap());
-        }
+        [SerializeField] private float _startSpawnTime;
+        
+        public float StartSpawnTime => _startSpawnTime;
 
         public IEnumerator StartSpawnSoap()
         {

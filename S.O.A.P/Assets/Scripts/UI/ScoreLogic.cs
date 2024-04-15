@@ -15,7 +15,7 @@ namespace UI
 
         private void Start()
         {
-            Score = 0;
+            Score = 1;
             MaxScore = SaveProgress.LoadScore();
             _maxScoreText.text = $"Max Score: {MaxScore}";
 
