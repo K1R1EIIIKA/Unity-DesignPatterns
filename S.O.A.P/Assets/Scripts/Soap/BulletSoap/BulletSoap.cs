@@ -1,11 +1,12 @@
 using System;
+using Audio;
 using ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Soap.BulletSoap
 {
-    public class BulletSoap : MonoBehaviour
+    public class BulletSoap : MonoBehaviour, ISoap
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -20,6 +21,11 @@ namespace Soap.BulletSoap
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void PlayHitSound()
+        {
+            AudioManager.Instance.Play("BulletSoap Hit");
         }
     }
 }

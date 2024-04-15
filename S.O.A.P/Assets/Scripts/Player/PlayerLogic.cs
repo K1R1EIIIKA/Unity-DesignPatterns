@@ -1,3 +1,4 @@
+using Soap;
 using UnityEngine;
 
 namespace Player
@@ -5,7 +6,7 @@ namespace Player
     public class PlayerLogic : MonoBehaviour
     {
         public PlayerStats Stats;
-        
+
         public static PlayerLogic Instance { get; private set; }
 
         private void Awake()
@@ -18,24 +19,23 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Enemy"))
-            {
-                if (Stats.TakeDamage(1) == 0)
-                {
-                    Debug.Log("Player died");
-                }
-            }
+            EnemyHit(other.gameObject);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Enemy"))
-            {
-                if (Stats.TakeDamage(1) == 0)
-                {
-                    Debug.Log("Player died");
-                }
-            }
+            EnemyHit(other.gameObject);
+        }
+
+        private void EnemyHit(GameObject other)
+        {
+            if (!other.CompareTag("Enemy")) return;
+            
+            Stats.TakeDamage(1);
+            other.GetComponent<ISoap>().PlayHitSound();
+
+            if (Stats.CurrentHealth == 0)
+                Debug.Log("Player died");
         }
     }
 }

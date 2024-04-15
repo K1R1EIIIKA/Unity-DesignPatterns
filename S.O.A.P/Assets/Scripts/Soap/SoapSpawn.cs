@@ -20,7 +20,9 @@ namespace Soap
         public IEnumerator StartSpawnSoap()
         {
             SpawnSoap();
+            
             yield return new WaitForSeconds(_spawnRate);
+            StartCoroutine(StartSpawnSoap());
         }
 
         public GameObject SpawnSoap()
