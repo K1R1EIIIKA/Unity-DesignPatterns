@@ -3,7 +3,6 @@ using Player;
 using ScriptableObjects;
 using Soap.Strategies;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Soap
 {

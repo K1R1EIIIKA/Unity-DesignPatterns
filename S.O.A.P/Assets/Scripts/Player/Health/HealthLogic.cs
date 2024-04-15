@@ -1,5 +1,5 @@
 using System;
-using DefaultNamespace;
+using EventBusLogic;
 using UnityEngine;
 
 namespace Player.Health

@@ -1,5 +1,5 @@
 using System;
-using DefaultNamespace;
+using EventBusLogic;
 using UnityEngine;
 
 namespace Player
@@ -30,6 +30,9 @@ namespace Player
                 _currentHealth -= damage;
             
             EventBus.Instance.TriggerEvent(GameEvent.OnHealthChanged);
+            
+            if (_currentHealth == 0)
+                EventBus.Instance.TriggerEvent(GameEvent.OnPlayerDied);
             
             return _currentHealth;
         }

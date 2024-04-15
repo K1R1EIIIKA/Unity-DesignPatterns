@@ -16,7 +16,8 @@ namespace Soap.BulletSoap
         
         private void Start()
         {
-            _rb.velocity = transform.right * Random.Range(_soapConfig.SpeedRange.x, _soapConfig.SpeedRange.y);
+            Vector3 centerPosition = new Vector3(0, 0, 0);
+            _rb.velocity = (centerPosition - transform.position).normalized * 3f;
             _rb.angularVelocity = Random.Range(_soapConfig.RotateSpeed.x, _soapConfig.RotateSpeed.y);
             Destroy(gameObject, _soapConfig.LifeTime);
         }

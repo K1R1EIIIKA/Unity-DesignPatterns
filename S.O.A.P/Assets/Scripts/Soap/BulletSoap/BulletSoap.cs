@@ -1,5 +1,7 @@
+using System;
 using ScriptableObjects;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Soap.BulletSoap
 {
@@ -10,6 +12,14 @@ namespace Soap.BulletSoap
         public void Init(BulletSoapSO soapConfig)
         {
             _spriteRenderer.sprite = soapConfig.Sprites[Random.Range(0, soapConfig.Sprites.Length)];
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
